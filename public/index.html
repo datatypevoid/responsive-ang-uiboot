@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+	
+	<!-- Mobile viewport optimized -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<base href="/">
+
+	<title>Responsive Website with Mean and UI Bootstrap</title>
+
+	<!-- CSS -->	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
+	<!-- <link rel="stylesheet" href="libs/css/bootstrap.css"> -->
+	<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+	<link rel="stylesheet" href="css/bootstrap-glyphicons.css">
+
+	<!-- JS -->
+	<script src="libs/angular/angular.min.js"></script>
+	<script src="libs/angular-route/angular-route.min.js"></script>
+	<script src="libs/angular-touch/angular-touch.min.js"></script>
+
+	<!-- UI Bootstrap -->
+	<script src="libs/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+	<!-- ANGULAR CUSTOM -->
+	<script src="js/controllers/mainCtrl.js"></script>
+	<script src="js/controllers/carouselCtrl.js"></script>
+	<script src="js/controllers/dropDownCtrl.js"></script>
+	<script src="js/controllers/navBarCtrl.js"></script>
+	<script src="js/controllers/alertCtrl.js"></script>
+	<script src="js/controllers/tabsCtrl.js"></script>
+	<script src="js/controllers/modalCtrl.js"></script>
+	<script src="js/controllers/popoverCtrl.js"></script>
+	<script src="js/controllers/tooltipCtrl.js"></script>
+	<script src="js/appRoutes.js"></script>
+	<script src="js/app.js"></script>
+
+</head>
+
+<body ng-app="responsive-ang-uiboot">
+
+	<div class="container" id="main">
+
+		<nav id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="navBarController">
+
+			<div class="container">
+
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+
+					<button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+
+		            	<span class="sr-only">Toggle navigation</span>
+
+		            	<span class="icon-bar"></span>
+
+		           		<span class="icon-bar"></span>
+
+		            	<span class="icon-bar"></span>
+
+		        	</button>
+
+					<a class="navbar-brand" href="/"><img src="images/logo.png" alt="Insert Logo Here"></a>
+
+				</div><!-- end navbar-header -->
+
+				<div collapse="isCollapsed" class="navbar-collapse collapse" >
+					
+					<ul class="nav navbar-nav">
+
+						<li>
+							<a href="/">Home</a>
+						</li>
+
+						<li class="dropdown" dropdown on-toggle="toggled(open)" ng-controller="servicesDropDown">
+							
+							<a href class="dropdown-toggle" dropdown-toggle>
+
+								Services <span class="caret"></span>
+
+							</a>
+
+							<ul class="dropdown-menu" role="menu">
+								
+								<li >
+
+									<a href="/services/webdesign">Web Design</a>
+
+								</li>
+
+								<li >
+
+									<a href="/services/webdevelopment">Web Development</a>
+
+								</li>
+
+								<li >
+
+									<a href="/services/seo">SEO</a>
+
+								</li>
+
+								<li class="divider"></li>
+
+								<li class="dropdown-header">More Services</li>
+
+								<li >
+
+									<a href="/services/contentcreation">Content Creation</a>
+
+								</li>
+
+								<li >
+
+									<a href="/services/socialmarketing">Social Media Marketing</a>
+
+								</li>
+
+							</ul><!-- end dropdown-menu -->
+							
+						</li><!-- end li Services ng-dropdown -->
+
+					</ul><!-- end nav -->
+
+					<!-- form to search website content -->
+					<form class="navbar-form navbar-left">
+
+						<!-- bind the value entered in this input to search.query -->
+						<input type="text" class="form-control" placeholder="Search this site..." id="searchInput" ng-model="search.query">
+
+						<!-- clicking the button will submit search.query to search function and return search results to display in angular. -->
+						<button type="submit" class="btn btn-default" ng-click="search()"><span class="glyphicon glyphicon-search"></span></button>
+
+					</form><!-- end navbar-form -->
+
+					<ul class="nav navbar-nav navbar-right">
+						
+						<li class="dropdown" dropdown on-toggle="toggled(open)" ng-controller="accountDropDown">
+							
+							<a href class="dropdown-toggle" dropdown-toggle>
+
+								<span class="glyphicon glyphicon-user"></span> My Account <span class="caret"></span>
+
+							</a>
+
+							<ul class="dropdown-menu" role="menu">
+								
+								<li >
+
+									<a href="/account/settings"><span class="glyphicon glyphicon-wrench"></span> Settings</a>
+
+								</li>
+
+								<li >
+
+									<a href="/account/update"><span class="glyphicon glyphicon-refresh"></span> Update Profile</a>
+
+								</li>
+
+								<li >
+
+									<a href="/account/billing"><span class="glyphicon glyphicon-briefcase"></span> Billing</a>
+
+								</li>
+
+								<li class="divider"></li>
+
+								<li >
+
+									<a href="/account/signout"><span class="glyphicon glyphicon-off"></span> Sign Out</a>
+
+								</li>
+
+							</ul><!-- end dropdown-menu -->
+							
+						</li><!-- end li MyAccount ng-dropdown -->
+
+					</ul><!-- end nav pull-right -->
+
+				</div><!-- end navbar-collapse -->
+
+			</div><!-- end container -->
+
+		</nav><!-- end navbar -->
+
+		<!-- ANGULAR DYNAMIC CONTENT -->
+		<div ng-view></div>
+
+	</div><!-- end container -->
+
+	<footer>
+		
+		<div class="container">
+
+			<div class="row">
+				
+				<div class="col-sm-2">
+					
+					<h6>Copyright &copy; 2015 Da5id Newman</h6>
+
+				</div><!-- end col-sm-2 -->
+
+				<div class="col-sm-4">
+
+					<h6>About Us</h6>
+
+					<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+
+				</div><!-- end col-sm-4 -->
+
+				<div class="col-sm-2">
+					
+					<h6>Navigation</h6>
+
+					<ul class="unstyled">
+						
+						<li><a href="/">Home</a></li>
+
+						<li><a href="/services">Services</a></li>
+
+						<li><a href="/account">Account</a></li>
+
+						<li><a href="/contact">Contact</a></li>
+
+					</ul>
+
+				</div><!-- end col-sm-2 -->
+
+				<div class="col-sm-2">
+					
+				<h6>Follow Us</h6>
+
+					<ul class="unstyled">
+						
+						<li><a href="#">Twitter</a></li>
+
+						<li><a href="#">Facebook</a></li>
+
+						<li><a href="#">Google Plus</a></li>
+
+					</ul>
+
+				</div><!-- end col-sm-2 -->
+
+				<div class="col-sm-2">
+
+				<h6>Coded with <span class="glyphicon glyphicon-heart"></span> by Da5id</h6>
+
+				</div><!-- end col-sm-2 -->
+
+			</div><!-- end row -->
+
+		</div><!-- end container -->
+
+	</footer>
+
+</body>
+
+</html>

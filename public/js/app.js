@@ -1,0 +1,1 @@
+angular.module('responsive-ang-uiboot', ['ngRoute', 'ngTouch', 'appRoutes', 'ui.bootstrap', 'mainCtrl', 'navBarCtrl', 'carouselCtrl', 'dropDownCtrl', 'alertCtrl', 'tabsCtrl', 'modalCtrl', 'popoverCtrl', 'tooltipCtrl']);
