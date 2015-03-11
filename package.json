@@ -2,10 +2,25 @@
   "name": "responsive-ang-uiboot",
   "main": "server.js",
   "dependencies": {
-    "express" : "~4.5.1",
-	"mongoose" : "~3.8.0",
-	"body-parser" : "~1.4.2",
-	"method-override" : "~2.0.2"
-  }
+    "express": "~4.5.1",
+    "mongoose": "~3.8.0",
+    "body-parser": "~1.4.2",
+    "method-override": "~2.0.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "description": "Template for a Single Page MEAN Stack application. Just download and install and you have a good foundation for building a web application.",
+  "version": "1.0.0",
+  "devDependencies": {},
+  "keywords": [
+    "responsive",
+    "angularjs",
+    "angular",
+    "ui",
+    "bootstrap",
+    "template"
+  ],
+  "author": "Da5id Newman",
+  "license": "ISC"
 }
-
